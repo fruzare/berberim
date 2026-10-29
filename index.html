@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Berberim — Randevu Platformu</title>
+<style>
+:root{--bg:#0d1117;--panel:#151c25;--panel2:#1b2531;--text:#f4f6f8;--muted:#aab5c2;--line:#2c3948;--accent:#d7ff64;--danger:#ff7b7b;--blue:#8fc7ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top right,#1d2a35 0,#0d1117 42%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px max(20px,calc((100% - 1120px)/2));border-bottom:1px solid var(--line);position:sticky;top:0;background:#0d1117ed;backdrop-filter:blur(12px);z-index:5}
+.brand{font-weight:900;letter-spacing:.4px;font-size:20px}.brand span{color:var(--accent)}nav{display:flex;gap:8px;flex-wrap:wrap}
+button,.btn{border:0;border-radius:12px;padding:11px 15px;background:var(--accent);color:#12170b;font-weight:800;cursor:pointer}button.secondary,.btn.secondary{background:var(--panel2);color:var(--text);border:1px solid var(--line)}button.danger{background:#4b252a;color:#ffd6d6;border:1px solid #73373e}button:disabled{opacity:.4;cursor:not-allowed}
+main{max-width:1120px;margin:0 auto;padding:32px 20px 70px}.hero{padding:38px 0 28px;display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:center}.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:900}h1{font-size:clamp(34px,5vw,60px);line-height:1.02;letter-spacing:-2px;margin:12px 0 16px}h2{margin:0 0 14px;font-size:24px}h3{margin:0 0 8px}.muted{color:var(--muted);line-height:1.55}.hero-card,.card{background:linear-gradient(145deg,#18212c,#121821);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 16px 40px #0002}.hero-card .big{font-size:52px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 32px}.feature{background:#131a23;border:1px solid var(--line);border-radius:16px;padding:17px}.feature strong{display:block;margin:8px 0}.section{margin-top:30px}.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}.stack{display:grid;gap:12px}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:grid;gap:6px}.field label{font-size:13px;color:var(--muted)}input,select,textarea{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:11px;background:#0c1219;color:var(--text);outline:none}input:focus,select:focus{border-color:var(--accent)}.hidden{display:none!important}.pill{display:inline-block;border:1px solid var(--line);padding:5px 9px;border-radius:99px;font-size:12px;color:var(--muted)}.status{font-weight:800;font-size:12px;padding:5px 9px;border-radius:99px;background:#283342;display:inline-block}.status.pending{color:#ffe49b}.status.approved{color:#c8ff9a}.status.rejected{color:#ffabab}.list{display:grid;gap:10px}.item{border:1px solid var(--line);background:#111821;border-radius:14px;padding:15px;display:flex;justify-content:space-between;gap:14px;align-items:center}.item p{margin:5px 0;color:var(--muted);font-size:13px}.empty{padding:24px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:14px}.notice{background:#262618;border:1px solid #57552a;color:#f2edb8;padding:13px 15px;border-radius:12px;font-size:13px;line-height:1.5}.qrwrap{background:#fff;border-radius:12px;padding:12px;display:inline-flex;min-height:140px;min-width:140px;align-items:center;justify-content:center}.qrwrap img{width:140px;height:140px}.small{font-size:12px;color:var(--muted)}footer{border-top:1px solid var(--line);padding:25px 20px;text-align:center;color:var(--muted);font-size:12px}
+@media(max-width:760px){header{align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr;padding-top:25px}.grid{grid-template-columns:1fr}.two{grid-template-columns:1fr}.item{align-items:flex-start;flex-direction:column}main{padding-top:20px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">BERBER<span>İM</span></div>
+  <nav>
+    <button class="secondary" onclick="showView('home')">Ana Sayfa</button>
+    <button class="secondary" onclick="showView('find')">Randevu Al</button>
+    <button class="secondary" onclick="showView('barberLogin')">Berber Paneli</button>
+    <button onclick="showView('admin')">Yönetici</button>
+  </nav>
+</header>
+<main>
+  <section id="home" class="view">
+    <div class="hero">
+      <div><div class="eyebrow">Berber randevusu artık kolay</div><h1>Berberini bul.<br><span style="color:var(--accent)">Saatini seç.</span></h1><p class="muted">QR kodunu okut veya berber kodunu gir. Randevu talebini gönder; berber onayladığında durumunu takip et.</p><div class="row" style="margin-top:20px"><button onclick="showView('find')">Randevu Al →</button><button class="secondary" onclick="showView('signup')">Berber Olarak Katıl</button></div></div>
+      <div class="hero-card"><div class="big">✂️</div><h2>Tek platform, her berbere özel</h2><p class="muted">İşletmeye özel sayfa, sayısal kod ve QR kod. Berberler randevu taleplerini kendi panellerinden yönetir.</p><span class="pill">Mobil uyumlu demo</span></div>
+    </div>
+    <div class="grid">
+      <div class="feature"><div>📷</div><strong>QR ile hızlı erişim</strong><span class="muted">Müşteri telefon kamerasıyla berber sayfasını açar.</span></div>
+      <div class="feature"><div>🔢</div><strong>Sayısal randevu kodu</strong><span class="muted">Kod girerek doğru işletmenin sayfasına ulaşır.</span></div>
+      <div class="feature"><div>✅</div><strong>Berber onaylı randevu</strong><span class="muted">Berber her talebi kabul veya reddedebilir.</span></div>
+    </div>
+    <div class="notice"><strong>Önemli:</strong> Bu, akışı göstermek için hazırlanmış çalışan bir ön izleme prototipidir. Veriler bu tarayıcıda saklanır; henüz gerçek kullanıcı hesapları, sunucu veritabanı, SMS veya güvenli yönetici girişi yoktur. İnternete gerçek müşteriler için açmadan önce backend ve kimlik doğrulama kurulmalıdır.</div>
+  </section>
+
+  <section id="find" class="view hidden">
+    <div class="eyebrow">Müşteri alanı</div><h1 style="font-size:42px">Berberini bul</h1>
+    <div class="card stack">
+      <div class="field"><label>Berberin sayısal kodu</label><div class="row"><input id="lookupCode" inputmode="numeric" placeholder="Örn. 583214"><button onclick="lookupBarber()">Berberi Bul</button></div></div>
+      <div class="small">QR kodu doğrudan bu sayfaya yönlendirecek şekilde hazırlanabilir. Bu demo sürümünde kodu buraya gir.</div>
+    </div>
+    <div id="customerBooking" class="card stack section hidden"></div>
+    <div class="section"><h2>Aktif berberler</h2><div id="publicBarbers" class="list"></div></div>
+    <div class="card section stack"><h2>Randevunu kontrol et</h2><p class="muted">Randevu talebi oluşturduğunda verilen takip koduyla durumunu görüntüleyebilirsin.</p><div class="row"><input id="bookingLookup" placeholder="Randevu takip kodu"><button onclick="lookupBooking()">Durumu Gör</button></div><div id="bookingResult"></div></div>
+  </section>
+
+  <section id="signup" class="view hidden">
+    <div class="eyebrow">İşletme kaydı</div><h1 style="font-size:42px">Berber olarak katıl</h1>
+    <div class="notice">Başvurular yönetici onayına gider. Onaylanınca işletme kodu ve QR kodu oluşturulur.</div>
+    <form class="card stack section" id="signupForm">
+      <div class="two"><div class="field"><label>Berber / işletme adı</label><input name="name" required placeholder="Örn. Ahmet Erkek Kuaförü"></div><div class="field"><label>Yetkili kişi</label><input name="owner" required placeholder="Ad soyad"></div></div>
+      <div class="two"><div class="field"><label>E-posta</label><input name="email" type="email" required placeholder="ornek@eposta.com"></div><div class="field"><label>Telefon</label><input name="phone" required placeholder="05xx xxx xx xx"></div></div>
+      <div class="two"><div class="field"><label>Şehir / ilçe</label><input name="location" required placeholder="Örn. Bursa / Nilüfer"></div><div class="field"><label>Adres (isteğe bağlı)</label><input name="address" placeholder="İşletme adresi"></div></div>
+      <button type="submit">Başvuru Gönder</button><div id="signupMessage" class="small"></div>
+    </form>
+  </section>
+
+  <section id="barberLogin" class="view hidden">
+    <div class="eyebrow">İşletme yönetimi</div><h1 style="font-size:42px">Berber paneli</h1>
+    <div class="card stack"><div class="field"><label>Demo giriş: işletme kodu</label><input id="barberLoginCode" inputmode="numeric" placeholder="Onaylanmış berber kodu"></div><button onclick="barberLogin()">Panele Gir</button><p class="small">Bu prototipte kodla giriş yalnızca ekran akışını göstermek içindir; gerçek sistemde güvenli hesap girişi kullanılmalıdır.</p></div>
+    <div id="barberDashboard" class="section hidden"></div>
+  </section>
+
+  <section id="admin" class="view hidden">
+    <div class="eyebrow">Platform yönetimi</div><h1 style="font-size:42px">Yönetici paneli</h1>
+    <div class="notice">Demo paneli parola korumalı değildir. Gerçek sistemde yalnızca sana özel güvenli yönetici hesabı olmalıdır.</div>
+    <div class="section"><h2>Bekleyen berber başvuruları</h2><div id="pendingBarbers" class="list"></div></div>
+    <div class="section"><h2>Aktif berberler</h2><div id="approvedBarbers" class="list"></div></div>
+  </section>
+</main>
+<footer>BERBERİM · Randevu platformu prototipi · Gerçek kullanıma açılmadan önce güvenli sunucu kurulumu gerekir.</footer>
+<script>
+const KEY='berberim_demo_v1';
+let state=JSON.parse(localStorage.getItem(KEY)||'{"barbers":[],"bookings":[]}');
+let activeBarber=null;
+function save(){localStorage.setItem(KEY,JSON.stringify(state));renderAll()}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function showView(id){document.querySelectorAll('.view').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');if(id==='find')renderPublic();if(id==='admin')renderAdmin();window.scrollTo({top:0,behavior:'smooth'})}
+function code(){let n;do{n=String(Math.floor(100000+Math.random()*900000))}while(state.barbers.some(b=>b.code===n));return n}
+function trackCode(){return 'R'+Math.random().toString(36).slice(2,8).toUpperCase()}
+function qrUrl(b){return 'https://api.qrserver.com/v1/create-qr-code/?size=220x220&data='+encodeURIComponent(location.href.split('#')[0]+'?berber='+b.code)}
+function statusText(s){return s==='pending'?'Onay bekliyor':s==='approved'?'Onaylandı':'Reddedildi'}
+document.getElementById('signupForm').addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.target);state.barbers.push({id:Date.now().toString(),name:f.get('name').trim(),owner:f.get('owner').trim(),email:f.get('email').trim(),phone:f.get('phone').trim(),location:f.get('location').trim(),address:f.get('address').trim(),status:'pending',services:[{name:'Saç kesimi',price:'',duration:30},{name:'Sakal tıraşı',price:'',duration:15}],hours:'09:00–20:00',created:new Date().toISOString()});save();e.target.reset();document.getElementById('signupMessage').textContent='Başvurun alındı. Yönetici onayından sonra hesabın aktifleşecek.';});
+function renderPublic(){const el=document.getElementById('publicBarbers');const list=state.barbers.filter(b=>b.status==='approved');el.innerHTML=list.length?list.map(b=>`<div class="item"><div><strong>${esc(b.name)}</strong><p>${esc(b.location)} · Kod: <b>${b.code}</b></p></div><button onclick="openBooking('${b.id}')">Randevu Talep Et</button></div>`).join(''):'<div class="empty">Henüz aktif berber yok. Demo için önce bir berber başvurusu oluşturup yönetici panelinden onaylayabilirsin.</div>'}
+function lookupBarber(){const c=document.getElementById('lookupCode').value.trim();const b=state.barbers.find(x=>x.code===c&&x.status==='approved');if(!b){alert('Bu kodla eşleşen aktif berber bulunamadı.');return}openBooking(b.id)}
+function openBooking(id){const b=state.barbers.find(x=>x.id===id);if(!b||b.status!=='approved')return;const el=document.getElementById('customerBooking');el.classList.remove('hidden');el.innerHTML=`<h2>${esc(b.name)}</h2><p class="muted">${esc(b.location)} · Çalışma saatleri: ${esc(b.hours||'Belirtilmedi')}</p><form class="stack" id="bookingForm"><div class="field"><label>Hizmet</label><select name="service">${(b.services||[]).map(s=>`<option value="${esc(s.name)}">${esc(s.name)}${s.price?` — ${esc(s.price)} TL`:''} (${esc(s.duration)} dk)</option>`).join('')}</select></div><div class="two"><div class="field"><label>Tercih edilen tarih</label><input type="date" name="date" min="${new Date().toISOString().slice(0,10)}" required></div><div class="field"><label>Tercih edilen saat</label><select name="time">${Array.from({length:22},(_,i)=>{let mins=540+i*30;return `<option>${String(Math.floor(mins/60)).padStart(2,'0')}:${String(mins%60).padStart(2,'0')}</option>`}).join('')}</select></div></div><div class="two"><div class="field"><label>Adın</label><input name="customer" required></div><div class="field"><label>Telefon numaran</label><input name="phone" required placeholder="05xx xxx xx xx"></div></div><div class="field"><label>Not (isteğe bağlı)</label><input name="note" placeholder="Örn. kısa kesim tercih ediyorum"></div><button>Randevu Talebi Gönder</button><div id="bookingMessage" class="small"></div></form>`;el.scrollIntoView({behavior:'smooth',block:'start'});
+document.getElementById('bookingForm').addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.target);const idc=trackCode();state.bookings.push({id:Date.now().toString(),track:idc,barberId:b.id,service:f.get('service'),date:f.get('date'),time:f.get('time'),customer:f.get('customer').trim(),phone:f.get('phone').trim(),note:f.get('note').trim(),status:'pending',created:new Date().toISOString()});save();document.getElementById('bookingMessage').innerHTML=`Talebin oluşturuldu. <strong>Takip kodun: ${idc}</strong><br>Bu kodu sakla; randevu durumunu kontrol edebilirsin.`;e.target.reset();});}
+function lookupBooking(){const t=document.getElementById('bookingLookup').value.trim().toUpperCase();const b=state.bookings.find(x=>x.track===t);const el=document.getElementById('bookingResult');if(!b){el.innerHTML='<p class="small">Bu takip koduyla randevu bulunamadı.</p>';return}const barber=state.barbers.find(x=>x.id===b.barberId);el.innerHTML=`<div class="item" style="margin-top:10px"><div><strong>${esc(barber?.name||'Berber')}</strong><p>${esc(b.service)} · ${esc(b.date)} ${esc(b.time)}</p><p>Takip kodu: ${esc(b.track)}</p></div><span class="status ${b.status}">${statusText(b.status)}</span></div>`}
+function barberLogin(){const c=document.getElementById('barberLoginCode').value.trim();const b=state.barbers.find(x=>x.code===c&&x.status==='approved');if(!b){alert('Aktif berber kodu bulunamadı.');return}activeBarber=b;renderBarberDashboard()}
+function renderBarberDashboard(){const b=activeBarber;const el=document.getElementById('barberDashboard');el.classList.remove('hidden');const bookings=state.bookings.filter(x=>x.barberId===b.id).sort((a,b)=>a.date.localeCompare(b.date)||a.time.localeCompare(b.time));el.innerHTML=`<div class="card stack"><div class="row" style="justify-content:space-between"><div><h2>${esc(b.name)}</h2><p class="muted">İşletme kodu: <strong>${b.code}</strong></p></div><span class="status approved">Aktif</span></div><div class="two"><div><div class="qrwrap"><img alt="Berber QR kodu" src="${qrUrl(b)}"></div><p class="small">QR kodu oluşturmak için internet bağlantısı gerekir. Yazdırmak için görsele basılı tutabilirsin.</p></div><div class="stack"><div class="field"><label>Çalışma saatleri</label><input id="hoursInput" value="${esc(b.hours||'09:00–20:00')}"></div><button onclick="saveHours()">Saatleri Kaydet</button><div class="field"><label>Yeni hizmet adı</label><input id="newService" placeholder="Örn. Saç + sakal"></div><div class="two"><div class="field"><label>Fiyat (TL)</label><input id="newPrice" inputmode="decimal" placeholder="350"></div><div class="field"><label>Süre (dk)</label><input id="newDuration" type="number" min="5" value="45"></div></div><button class="secondary" onclick="addService()">Hizmet Ekle</button><div><strong>Hizmetlerin</strong><p class="small">${(b.services||[]).map(s=>`${esc(s.name)} · ${s.price?esc(s.price)+' TL':'fiyat girilmedi'} · ${esc(s.duration)} dk`).join('<br>')}</p></div></div></div></div><div class="section"><h2>Randevu talepleri</h2><div class="list">${bookings.length?bookings.map(x=>`<div class="item"><div><strong>${esc(x.customer)} · ${esc(x.service)}</strong><p>${esc(x.date)} ${esc(x.time)} · ${esc(x.phone)}</p><p>Takip kodu ${esc(x.track)}${x.note?' · '+esc(x.note):''}</p><span class="status ${x.status}">${statusText(x.status)}</span></div><div class="row">${x.status==='pending'?`<button onclick="setBooking('${x.id}','approved')">Onayla</button><button class="danger" onclick="setBooking('${x.id}','rejected')">Reddet</button>`:''}</div></div>`).join(''):'<div class="empty">Henüz randevu talebi yok.</div>'}</div></div>`}
+function saveHours(){activeBarber.hours=document.getElementById('hoursInput').value.trim();save();renderBarberDashboard()}
+function addService(){const name=document.getElementById('newService').value.trim();if(!name){alert('Hizmet adı gir.');return}activeBarber.services=activeBarber.services||[];activeBarber.services.push({name,price:document.getElementById('newPrice').value.trim(),duration:Math.max(5,Number(document.getElementById('newDuration').value)||30)});save();renderBarberDashboard()}
+function setBooking(id,status){const b=state.bookings.find(x=>x.id===id);if(!b)return;if(status==='approved'){const clash=state.bookings.some(x=>x.id!==id&&x.barberId===b.barberId&&x.date===b.date&&x.time===b.time&&x.status==='approved');if(clash){alert('Bu saat için onaylanmış başka bir randevu var. Önce müşteriye başka saat önermelisin.');return}}b.status=status;save();renderBarberDashboard()}
+function renderAdmin(){const p=document.getElementById('pendingBarbers'),a=document.getElementById('approvedBarbers');const pending=state.barbers.filter(b=>b.status==='pending'),approved=state.barbers.filter(b=>b.status==='approved');p.innerHTML=pending.length?pending.map(b=>`<div class="item"><div><strong>${esc(b.name)}</strong><p>${esc(b.owner)} · ${esc(b.email)} · ${esc(b.phone)}</p><p>${esc(b.location)} ${b.address?'· '+esc(b.address):''}</p></div><div class="row"><button onclick="approveBarber('${b.id}')">Onayla</button><button class="danger" onclick="rejectBarber('${b.id}')">Reddet</button></div></div>`).join(''):'<div class="empty">Bekleyen başvuru yok.</div>';a.innerHTML=approved.length?approved.map(b=>`<div class="item"><div><strong>${esc(b.name)}</strong><p>${esc(b.location)} · Kod: ${b.code}</p></div><button class="danger" onclick="disableBarber('${b.id}')">Pasife Al</button></div>`).join(''):'<div class="empty">Henüz aktif berber yok.</div>'}
+function approveBarber(id){const b=state.barbers.find(x=>x.id===id);if(!b)return;b.status='approved';b.code=code();save();renderAdmin()}
+function rejectBarber(id){const b=state.barbers.find(x=>x.id===id);if(!b)return;b.status='rejected';save();renderAdmin()}
+function disableBarber(id){const b=state.barbers.find(x=>x.id===id);if(!b)return;b.status='rejected';save();renderAdmin()}
+function renderAll(){if(!document.getElementById('find').classList.contains('hidden'))renderPublic();if(!document.getElementById('admin').classList.contains('hidden'))renderAdmin();if(activeBarber&&!document.getElementById('barberDashboard').classList.contains('hidden')){activeBarber=state.barbers.find(b=>b.id===activeBarber.id)||activeBarber;renderBarberDashboard()}}
+const params=new URLSearchParams(location.search);if(params.get('berber')){showView('find');document.getElementById('lookupCode').value=params.get('berber');setTimeout(lookupBarber,100)}else{renderAll()}
+</script>
+</body>
+</html>
